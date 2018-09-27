@@ -1,0 +1,32 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="col-sm-10 col-md-offset-1" ng-init="dashboardScope.fetchDashboardVals()">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small>EMS</small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 pointer-links" ui-sref="listexpenses">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+            <div class="info-box-content text-align: center">
+              <span class="info-box-text">Total Expenses</span>
+              <span class="info-box-number">{{dashboardScope.data.expenseCount}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

@@ -1,0 +1,50 @@
+
+<div class="register-box">
+  <div class="register-logo">
+    <b>EMS</b>
+  </div>
+
+  <div class="register-box-body bdr-all">
+    <p class="login-box-msg">Please Add Your Expenses Here:</p>
+
+    <form role="form" name="AddExpenseform" ng-submit="submitForm(AddExpenseform.$valid)" novalidate>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Expense name" ng-model="expensesScope.expenseName" name="expenseName" ng-required="true">
+        <span class="form-control-feedback"></span>
+      </div>
+      <p ng-show="AddExpenseform.expenseName.$invalid && !AddExpenseform.expenseName.$pristine" class="help-block">Expense Name is required.</p>
+
+      <div class="form-group has-feedback">
+        <input type="number" class="form-control" placeholder="Total Price" name="totalAmount" ng-model="expensesScope.expenseAmount" ng-required="true">
+        <span class="form-control-feedback"></span>
+      </div>
+      <p ng-show="AddExpenseform.totalAmount.$invalid && !AddExpenseform.totalAmount.$pristine" class="help-block">Expense Amount is required.</p>
+
+      <div class="form-group has-feedback">
+        <input class="form-control" accept="image/*" id="expenseFile" type="file" name="expenseFile" file-model="expensesScope.expenseFile">
+      </div>
+      <p ng-show="AddExpenseform.expenseFile.$invalid && !AddExpenseform.expenseFile.$pristine" class="help-block">File is required.</p>
+      <div class="row">
+           <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" ng-click="expensesScope.saveExpenses()" ng-disabled="AddExpenseform.$invalid" class="btn btn-primary btn-block btn-flat">Submit</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <div ng-show="expensesScope.successmsg" class="m-b-0 m-t-10 well well-sm alert alert-success text-center">Expenses is saved. <a ui-sref="listexpenses"> Click to go to View all expenses</a> </div>
+    <div ng-show="expensesScope.errormsg"  class=" m-b-0 m-t-10  well well-sm alert alert-danger text-center">Expenses is saved.Please try again.</a> </div>
+
+  </div>
+  <!-- /.form-box -->
+</div>
+
+
+

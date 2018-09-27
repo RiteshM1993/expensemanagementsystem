@@ -1,0 +1,50 @@
+
+<div class="register-box">
+  <div class="register-logo">
+    <b>EMS</b>
+  </div>
+
+  <div class="register-box-body bdr-all">
+    <p class="login-box-msg">Please Edit Your Expenses Here:</p>
+
+    <form role="form" name="EditExpenseform" ng-init="expensesScope.getDatatoUpdate()"  ng-submit="submitForm(EditExpenseform.$valid)" novalidate>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Expense name" ng-model="expensesScope.data.expenseName" name="expenseName" ng-required="true">
+        <span class="form-control-feedback"></span>
+      </div>
+      <p ng-show="EditExpenseform.expenseName.$invalid && !EditExpenseform.expenseName.$pristine" class="help-block">Expense Name is required.</p>
+
+      <div class="form-group has-feedback">
+        <input type="number" class="form-control" placeholder="Total Price" name="totalAmount" ng-model="expensesScope.data.empensePrice" ng-required="true">
+        <span class="form-control-feedback"></span>
+      </div>
+      <p ng-show="EditExpenseform.totalAmount.$invalid && !EditExpenseform.totalAmount.$pristine" class="help-block">Expense Amount is required.</p>
+      <div class="form-group has-feedback">
+        <input class="form-control" accept="image/*" id="fileUpload" type="file" name="uploadImage" file-model="expensesScope.data.uploadImage">
+        <img src="{{expensesScope.data.upload}}" width="150" height="150">
+      </div>
+      <p ng-show="EditExpenseform.expenseFile.$invalid && !EditExpenseform.expenseFile.$pristine" class="help-block">File is required.</p>
+      <div class="row">
+           <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" ng-click="expensesScope.saveUpdatedUser()" ng-disabled="EditExpenseform.$invalid" class="btn btn-primary btn-block btn-flat">Submit</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <div ng-show="expensesScope.successmsg" class="m-b-0 m-t-10 well well-sm alert alert-success text-center">Expenses is Updated. <a ui-sref="listexpenses"> Click to go to View all expenses</a> </div>
+    <div ng-show="expensesScope.errormsg"  class=" m-b-0 m-t-10  well well-sm alert alert-danger text-center">Expenses is Not Updated.Please try again.</a> </div>
+
+  </div>
+  <!-- /.form-box -->
+</div>
+
+
+
